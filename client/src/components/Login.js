@@ -22,7 +22,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setIsLoading(true)
+    setLoading(true)
     AxiosWithAuth()
       .post('/api/login', login)
       .then((res) => {
@@ -32,7 +32,7 @@ const Login = () => {
           password:'',
         })
         history.push('/bubble-page')
-        setIsLoading(false)
+        setLoading(false)
     })
       .catch(err => console.log(err))
 
@@ -56,7 +56,7 @@ const Login = () => {
           onChange={handleChange}
       />
       <button type='submit'>Log in</button>
-      {isLoading &&  (
+      {loading &&  (
         <div>Loading (replace this with a gif)</div>
       )}
   </form>
