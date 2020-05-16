@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {AxiosWithAuth} from '../util/AxiosWithAuth'
 
 
@@ -21,12 +21,13 @@ const ColorList = ({ colors, updateColors }) => {
   const saveEdit = e => {
     setEditing(false)
     e.preventDefault();
-    // Make a put request to save your updated color
-    // think about where will you get the id from...
-    // where is is saved right now?
+//axios.put on colorToEdit.id because thats where it is in our state
     AxiosWithAuth()
       .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
+      //update Colors
       .then(() => updateColors() )
+      //a useEffect hook could have been used to call a re render instead of this but 
+      //ran out of time and this works
       .then(window.location.reload())
       .catch(err => console.log(err))
   };
@@ -35,11 +36,12 @@ const ColorList = ({ colors, updateColors }) => {
     // make a delete request to delete this color
     AxiosWithAuth()
     .delete(`/api/colors/${color.id}`)
+    //update Colors
     .then(() =>  updateColors())
+      //a useEffect hook could have been used to call a re render instead of this but 
+      //ran out of time and this works
     .then(window.location.reload())
-    .catch(error => {
-      console.log('Error Deleting', error);
-    })
+    .catch(err => console.log(err))
   };
 
   

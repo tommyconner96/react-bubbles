@@ -57,7 +57,7 @@ const Login = () => {
       />
       <button type='submit'>Log in</button>
       {loading &&  (
-        <div>Loading (replace this with a gif)</div>
+        <div>Loading</div>
       )}
   </form>
 </div>
