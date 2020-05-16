@@ -18,24 +18,7 @@ function App() {
         <Route exact path="/" component={Login} />
         <PrivateRoute exact path='/bubble-page' component={BubblePage} />
       </Switch>
-
-
-
-        {/* 
-          Build a PrivateRoute component that will 
-          display BubblePage when you're authenticated 
-        */}
       </div>
-      {/* <Link to='/'>Home</Link>
-        <Link to='/login'>Login</Link>
-        <Link to='/friends'>Friends</Link>
-        <Switch>
-          <PrivateRoute exact path='/friends' component={Friends} />
-          <Route path='/login' component={Login} />
-          <Route path='/' component={HomePage} />
-        </Switch>
-
-      </div> */}
 
     </Router>
   );
